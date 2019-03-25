@@ -8,12 +8,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace HiMiddleWare
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
+namespace Middleware {
+    public class Program {
+        public static void Main(string[] args) {
             BuildWebHost(args).Run();
         }
 

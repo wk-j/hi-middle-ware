@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/src/HiMiddleWare/HiMiddleWare.csproj"
+                "${workspaceFolder}/src/Middleware/Middleware.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
