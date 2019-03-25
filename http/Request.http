@@ -4,3 +4,8 @@ GET http://localhost:5000/api/values/hi
 
 GET http://localhost:5000/api/values/hi
 Custom-Token: "Hello"
+
+###
+
+GET http://localhost:5000/api/values/hi?customToken=8080shgssws
+Custom-Token: "Hello"
