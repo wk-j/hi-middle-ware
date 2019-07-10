@@ -23,22 +23,22 @@ namespace Middleware {
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
-            app.Use(async (context, next) => {
-                var ok = context.Request.Headers.TryGetValue("Custom-Token", out var customToken);
-                var parameter = context.Request.Query.Where(x => x.Key == "customToken").FirstOrDefault();
-                if (ok) {
-                    Console.WriteLine("Next ...");
-                    context.Request.Headers.Add("Authorization", "Bearer " + customToken);
-                    await next.Invoke();
-                } else if (parameter.Key != null) {
-                    Console.WriteLine("customToken - {0}", parameter.Value);
-                    await next.Invoke();
-                } else {
-                    context.Response.Headers.Add("Hi", "Hi");
-                    context.Response.StatusCode = StatusCodes.Status511NetworkAuthenticationRequired;
-                    await context.Response.WriteAsync("Invalid token!");
-                }
-            });
+            // app.Use(async (context, next) => {
+            //     var ok = context.Request.Headers.TryGetValue("Custom-Token", out var customToken);
+            //     var parameter = context.Request.Query.Where(x => x.Key == "customToken").FirstOrDefault();
+            //     if (ok) {
+            //         Console.WriteLine("Next ...");
+            //         context.Request.Headers.Add("Authorization", "Bearer " + customToken);
+            //         await next.Invoke();
+            //     } else if (parameter.Key != null) {
+            //         Console.WriteLine("customToken - {0}", parameter.Value);
+            //         await next.Invoke();
+            //     } else {
+            //         context.Response.Headers.Add("Hi", "Hi");
+            //         context.Response.StatusCode = StatusCodes.Status511NetworkAuthenticationRequired;
+            //         await context.Response.WriteAsync("Invalid token!");
+            //     }
+            // });
 
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
