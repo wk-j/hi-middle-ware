@@ -7,7 +7,7 @@ namespace Filter.Controllers.Home {
     }
 
     [Route("api/[controller]/[action]")]
-    [MyResultFilter]
+    [ServiceFilter(typeof(MyResultFilter))]
     public class HomeController : ControllerBase {
         [HttpGet]
         public ActionResult<string> Go() {
